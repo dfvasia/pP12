@@ -1,0 +1,30 @@
+* {
+   box-sizing: border-box;
+    }
+html {
+    background: #666666;
+}
+
+main {
+    background: white;
+    width: 340px;
+    margin: 10px auto;
+    padding: 10px 50px 50px 20px;
+}
+.row {display: flex;}
+
+
+
+.col {flex: auto;}
+.col {
+  margin: 0px 0px 0px 0px;
+  font-family: sans-serif;
+  }
+.major{
+    background-color: #CCECFA;
+    font-size: 15px;
+    font-weight: bold;
+}
+.picture{
+    text-align: center;
+}

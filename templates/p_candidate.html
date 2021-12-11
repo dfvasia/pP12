@@ -3,14 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Анкета кандидата на работу</title>
+    <link rel= "stylesheet" href= "{{ url_for('static',filename='styles/style.css') }}">
 </head>
 <body>
-<h1>Имя кандидата</h1>
-<h1>{{ person_data_user_name }}</h1>
-<p>Позиция кандидата</p>
-<p>{{ person_data_user_position }}</p>
-<img src={{ person_data_user_picture }} width=200/>
-<p>Навыки кандидата</p>
-<p>{{ person_data_user_skills }}</p>
+    <main>
+<div class="row">
+    <div class="col">
+        <p class="major">Имя кандидата</p>
+        <p>Позиция кандидата</p>
+    </div>
+
+    <div class="col">
+        <p class="major">{{ person_data_user_name }}</p>
+        <p>{{ person_data_user_position }}</p>
+    </div>
+
+</div>
+        <p class="picture"><img src={{ person_data_user_picture }} width=200/></p>
+        <p><strong>Навыки кандидата:</strong></p>
+        <p>{{ person_data_user_skills }}</p>
+        {% <if></if>
+        <p><a href="http://127.0.0.1:5000/candidate/{{ id_x_t }}">Кандидат {{ id_x_t }}</a></p>
+    </main>
 </body>
 </html>
