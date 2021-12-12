@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск людей</title>
+    <link rel= "stylesheet" href= "{{ url_for('static',filename='styles/style.css') }}">
+</head>
+<body>
+<main>
+    <form class="one" name="search" method="GET">
+        <div>Имя для поиска</div>
+        <input type="text" name="name" required="required">
+        <input type="submit" name="submit_btn" value="Отправить">
+        {% for key, candidate in p_search.items() %}
+         <p><a href="/candidate/{{ key }}">{{ loop.index }} {{ candidate }}</a></p>
+        {% endfor %}
+        <div class="row">
+            <div class="col">
+                <p><a href="http://127.0.0.1:5000/candidate/{{ id_x_t }}">Кандидат {{ id_x_t }}</a></p>
+            </div>
+            <div class="col">
+                <p><a href="http://127.0.0.1:5000/list/">Список</a></p>
+            </div>
+            <div class="col">
+                <p><a href="http://127.0.0.1:5000">Главная страница</a></p>
+            </div>
+        </div>
+    </form>
+</main>
+</body>
+</html>

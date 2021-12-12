@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cписок всех кандидатов</title>
+    <link rel= "stylesheet" href= "{{ url_for('static',filename='styles/style.css') }}">
+</head>
+<body>
+<main>
+    <h1>Все кандидаты</h1>
+    {% for candidate in list_person %}
+    <p><a href="/candidate/{{ loop.index }}">{{ candidate }}</a></p>
+    {% endfor %}
+    <p><a href="http://127.0.0.1:5000/search/">Поиск</a></p>
+</main>
+</body>
+</html>
