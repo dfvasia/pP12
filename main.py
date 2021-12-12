@@ -50,6 +50,7 @@ def list():
     list_person = person_data_user
     return render_template("list.html", list_person=list_person)
 
+
 @app.route('/search/')
 def p_search():
     p_search = request.args.get("name")
