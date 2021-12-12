@@ -53,8 +53,6 @@ def list():
 @app.route('/search/')
 def p_search():
     p_search = request.args.get("name")
-    # if settings_app["case-sensitive"] is False:
-    #     p_search.lower()
     list_person = person_data_user
     temp_search = {}
     if p_search:
@@ -69,6 +67,33 @@ def p_search():
                     temp_search[person.id_p] = person.name
 
     return render_template("search.html", p_search=temp_search, temp_search=temp_search)
+
+
+@app.route('/skill/')
+def skills():
+    list_person = person_data_user
+    temp_search = set ()
+    for person in list_person:
+        temp_search.add(person.skills)
+    return render_template("skill.html", p_search=temp_search)
+
+
+
+
+@app.route('/skill/<skill>')
+def p_skill(skill):
+    list_person = person_data_user
+    cnt = 0
+    temp_search = {}
+    p_s = skill.lower()
+    for person in list_person:
+        if p_s in person.skills.lower():
+            temp_search[person.id_p] = person.name
+            cnt += 1
+            if settings_app["limit"] == cnt:
+                return render_template("skill.html", p_search=temp_search, temp_search=temp_search)
+    return render_template("search.html", p_search=temp_search, temp_search=temp_search)
+
 
 
 app.run(debug=True)
