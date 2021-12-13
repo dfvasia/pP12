@@ -19,30 +19,44 @@ def is_online():
         return render_template("s_main.html", s_status="Приложение не работает")
 
 
+# @app.route('/candidate/<int:id_x>')
+# def candidate(id_x):
+#     if 0 < id_x <= 7:
+#         idx = id_x -1
+#         id_x_t = id_x + 1
+#         person_data_user_name = person_data_user[idx].name
+#         person_data_user_position = person_data_user[idx].position
+#         person_data_user_picture = person_data_user[idx].picture_url
+#         person_data_user_skills = person_data_user[idx].skills
+#         if id_x == 7:
+#             id_x_t = 1
+#         return render_template("p_candidate.html", person_data_user_name=person_data_user_name,
+#                            person_data_user_position=person_data_user_position,
+#                            person_data_user_picture=person_data_user_picture,
+#                            person_data_user_skills=person_data_user_skills, id_x_t=id_x_t)
+
 @app.route('/candidate/<int:id_x>')
 def candidate(id_x):
-    while True:
-        if 0 < id_x <= 7:
-            idx = id_x -1
-            id_x_t = id_x + 1
-            person_data_user_name = person_data_user[idx].name
-            person_data_user_position = person_data_user[idx].position
-            person_data_user_picture = person_data_user[idx].picture_url
-            person_data_user_skills = person_data_user[idx].skills
-            if id_x == 7:
-                id_x_t = 1
-                return render_template("p_candidate.html", person_data_user_name=person_data_user_name,
-                                   person_data_user_position=person_data_user_position,
-                                   person_data_user_picture=person_data_user_picture,
-                                   person_data_user_skills=person_data_user_skills, id_x_t=id_x_t)
-            else:
-                return render_template("p_candidate.html", person_data_user_name=person_data_user_name,
-                                   person_data_user_position=person_data_user_position,
-                                   person_data_user_picture=person_data_user_picture,
-                                   person_data_user_skills=person_data_user_skills, id_x_t=id_x_t)
-
-        else:
-            return redirect("http://127.0.0.1:5000/candidate/1", code=302)
+    if 0 < id_x <= 7:
+        idx = id_x -1
+        id_x_t = id_x + 1
+        temp_dict= []
+        for candidate in person_data_user:
+            temp_dict.append({
+                "id":candidate.id_p,
+                "name":candidate.name,
+                "picture":candidate.picture_url,
+                "position":candidate.position,
+                "gender":candidate.gender,
+                "age":candidate.age,
+                "skills":candidate.skills,
+            })
+        for candidate in temp_dict:
+            if candidate["id"] == id_x:
+                if id_x == 7:
+                    id_x_t = 1
+                print(candidate)
+                return render_template("p_candidate.html", **candidate, id_x_t=id_x_t)
 
 
 @app.route('/list/')

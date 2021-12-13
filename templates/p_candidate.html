@@ -14,22 +14,22 @@
             </div>
 
         <div class="col">
-            <p class="major">{{ person_data_user_name }}</p>
-            <p>{{ person_data_user_position }}</p>
+            <p class="major">{{ name }}</p>
+            <p>{{ position }}</p>
             </div>
 
 </div>
-        <p class="picture"><img src={{ person_data_user_picture }} width=200/></p>
+        <p class="picture"><img src={{ picture }} width=200/></p>
         <p><strong>Навыки кандидата:</strong></p>
-        <p>{{ person_data_user_skills }}</p>
+        <p>{{ skills }}</p>
          <div class="row">
             <div class="col">
-                <p><a href="http://127.0.0.1:5000/candidate/{{ id_x_t }}">Кандидат {{ id_x_t }}</a></p>
-                <p><a href="http://127.0.0.1:5000/search/">Поиск</a></p>
+                <p><a href="/candidate/{{ id_x_t }}">Кандидат {{ id_x_t }}</a></p>
+                <p><a href="/search/">Поиск</a></p>
             </div>
             <div class="col">
-                <p><a href="http://127.0.0.1:5000/list/">Список</a></p>
-                <p><a href="http://127.0.0.1:5000/skill/">Список навыков</a></p>
+                <p><a href="/list/">Список</a></p>
+                <p><a href="/skill/">Список навыков</a></p>
          </div>
     </main>
 </body>
