@@ -11,8 +11,8 @@
         <div>Имя поиска навыка</div>
         <input type="text" name="name" required="required">
         <input type="submit" name="submit_btn" value="Отправить">
-        {% for key, candidate in p_search.items() %}
-         <p><a href="/candidate/{{ key }}">{{ loop.index }} {{ candidate }}</a></p>
+        {% for skill in p_search %}
+         <p><a href="/skill/{{ skill }}">{{ skill }}</a></p>
         {% endfor %}
         <div class="row">
             <div class="col">

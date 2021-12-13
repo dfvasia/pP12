@@ -73,9 +73,11 @@ def p_search():
 @app.route('/skill/')
 def skills():
     list_person = person_data_user
-    temp_search = set ()
+    temp_search = set()
     for person in list_person:
-        temp_search.add(person.skills)
+        s = person.skills.split(', ')
+        for i in s:
+            temp_search.add(i)
     return render_template("skill.html", p_search=temp_search)
 
 
