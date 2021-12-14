@@ -37,7 +37,7 @@ def is_online():
 
 @app.route('/candidate/<int:id_x>')
 def candidate(id_x):
-    if 0 < id_x <= 7:
+    if 0 < id_x <= len(person_data_user):
         idx = id_x -1
         id_x_t = id_x + 1
         temp_dict= []
@@ -53,7 +53,7 @@ def candidate(id_x):
             })
         for candidate in temp_dict:
             if candidate["id"] == id_x:
-                if id_x == 7:
+                if id_x == len(person_data_user):
                     id_x_t = 1
                 print(candidate)
                 return render_template("p_candidate.html", **candidate, id_x_t=id_x_t)
