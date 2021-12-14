@@ -55,7 +55,6 @@ def candidate(id_x):
             if candidate["id"] == id_x:
                 if id_x == len(person_data_user):
                     id_x_t = 1
-                print(candidate)
                 return render_template("p_candidate.html", **candidate, id_x_t=id_x_t)
 
 
